@@ -1,0 +1,93 @@
+
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Daniel Gonzalez
+ */
+public class TodosSevan_SA {
+    private float totalHono;//total honorarios por las N conferencias.
+    private int totalPonen; //ponenetes que han participado por conferencia.
+    private int acumEdad=0;//acumala la edad de los ponentes.
+    private float promEdad=0;
+    private float totalHonorarios;
+    
+
+    
+    /**
+     * @param args the command line arguments
+     */
+   
+    public static void main(String[] args) {
+        
+        Scanner objLec=new Scanner(System.in);
+        //instaciamos las clases que se requiere para la solucion.
+        
+        TodosSevan_SA objPpal= new TodosSevan_SA();//objeto de la empresa y llamado al contructor vacio.
+        conferencias objConf= new conferencias();//objeto conferencias y llamado al contructor vacio.
+        ponentes objPon= new ponentes();//objeto ponentes y llamado al constructor vacio.
+        
+        int N,Np,i,j,ContPon=0; //numero de conferencias y contador de ponenetes para promedio.
+       
+        System.out.println("Digite número de Conferencias a programar: ");
+        N=objLec.nextInt();
+        String respuesta;
+        for(i=1;i<=N;i++)
+        {
+            //se trae el obejto con el metodo ingresar datos.
+           
+        	objConf=objConf.IngresarDatos();
+            System.out.println("Ingresa la cantidad de ponentes por conferencia");
+            Np=objLec.nextInt();
+            
+            for(j=1;j<=Np;j++)
+           
+           {
+           //se trae el objeto con el metodo ingresar datos.
+            objPon=objPon.IngresarDatos();
+           ContPon=objPpal.ContarPonentes(ContPon); //metodo para contar ponentes.
+           objPpal.acumularEdad(objPon.getEdad());//metodo para acumular edades.
+           objPpal.acumularHonorarios(objPon.getHonorarios());//metodo de clase principal para calcular honorarios
+           
+           }
+               
+            //fin mientras
+        }
+        
+          
+        System.out.println("El promedio de edad de todas los ponentes, en todos los eventos es: "
+                +objPpal.Promediar(objPpal.acumEdad, ContPon));
+            
+        float totalHonorarios = objPpal.getTotalHonorarios();
+        
+        System.out.println("El total de honorarios gastados en las N conferencias es: " + totalHonorarios);
+            
+        }
+
+    private int ContarPonentes(int con) {
+        con=con+1;
+        return con;
+    }
+
+    private void acumularEdad(int edad) {
+       acumEdad=acumEdad+edad;
+       
+    }
+
+    private void acumularHonorarios(float honorarios) {
+       totalHonorarios +=honorarios;
+    }
+
+    public float getTotalHonorarios() {
+        return totalHonorarios;
+    }
+    
+    private float Promediar(int ae, int cp ) {
+     
+    return (ae/cp);
+        
+      
+    }
+}
+        
