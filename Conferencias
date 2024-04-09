@@ -1,0 +1,85 @@
+
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Daniel Gonzalez
+ */
+public class conferencias {
+    private String nombre;
+    private String lugar;
+    private String fecha;
+    private String hora;
+
+    public conferencias(String nombre, String lugar, String fecha, String hora) {
+        this.nombre = nombre;
+        this.lugar = lugar;
+        this.fecha = fecha;
+        this.hora = hora;
+    }
+
+    public conferencias() {
+    }
+
+    public conferencias IngresarDatos()
+    {
+        //creamos el objeto lector tipo scanner   
+    Scanner objLec=new Scanner(System.in);    
+    String nombre,lugar,fecha,hora;
+    //pedimos informacion por consola.
+    System.out.println("Ingresa el Nombre de la  Conferencia:");
+    nombre=objLec.next();
+    System.out.println("Ingrese el lugar de la Conferencia:");
+    lugar=objLec.next();
+    System.out.println("Ingrese la fecha mm/dd/aa:");
+    fecha=objLec.next();
+    System.out.println("Ingrese la hora hh:mm:ss:");
+    hora=objLec.next();
+   
+    //se define la variable tipo conferencias -- se instancia la clase
+    conferencias ObjConf;
+    //llamada al constructor de la clase conferencias para crear el objeto
+    ObjConf=new conferencias(nombre,lugar,fecha, hora);
+    return ObjConf;
+    }//Fin de ingresar datos
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    @Override
+    public String toString() {
+        return "CONFERENCIA{" + " nombre= " + nombre + ", lugar= " + lugar + ", fecha= " + fecha + ", hora= " + hora + '}';
+    }
+   
+    
+}
