@@ -1,0 +1,111 @@
+
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Daniel Gonzalez
+ */
+public class ponentes {
+    private String id;
+    private String nombre;
+    private String apellido;
+    private int edad;
+    private String especialidad;
+    private float honorarios;
+
+    public ponentes(String id, String nombre, String apellido, int edad, String especialidad, float honorarios) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.especialidad = especialidad;
+        this.honorarios = honorarios;
+    }
+    
+    public ponentes IngresarDatos()
+    {
+    //creamos el objeto lector tipo scanner   
+    Scanner objLec=new Scanner(System.in);    
+    String id,nombre,apellido,especialidad;
+    int edad;
+    float honorarios;
+    System.out.print ( "Identificacion:");
+    id=objLec.next();
+    System.out.print ( "Nombre:");
+    nombre=objLec.next();
+    System.out.print ( "Apellido:");
+    apellido=objLec.next();
+    System.out.print ( "Edad:");
+    edad=objLec.nextInt();    
+    System.out.print ( "Especialidad:");
+    especialidad=objLec.next();
+    System.out.print ( "Honorarios en pesos:");
+    honorarios=objLec.nextFloat();
+    //creando el objeto de la clase, o sea se define una variable tipo clase
+    ponentes ObjPon;
+    //llamando al constructor de la clase para dar un inicio
+    ObjPon=new ponentes(id, nombre, apellido, edad, especialidad, honorarios);
+    return ObjPon;
+    }//Fin de ingresar datos
+
+    public ponentes() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public float getHonorarios() {
+        return honorarios;
+    }
+
+    public void setHonorarios(float honorarios) {
+        this.honorarios = honorarios;
+    }
+
+    @Override
+    public String toString() {
+        return "CONFERENCISTAS{" + "ID=" + id + ", Nombre=" + nombre + ", Apellido=" + apellido + ", Edad=" + edad + ", Especialidad=" + especialidad + ", Honorarios=" + honorarios + '}';
+    }
+    
+    
+    
+    
+}
